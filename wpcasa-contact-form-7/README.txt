@@ -43,9 +43,9 @@ No, this is an add-on plugin for the WPCasa real estate framework in combination
 == Screenshots ==
 
 1. Contact Form 7 form on listing page
-2. Email message with property details
-3. Add-on tab on WPCasa settings page
-4. Contact Form 7 form editor
+2. Contact Form 7 form editor
+3. Contact Form 7 mail editor
+4. Add-on tab on WPCasa settings page
 
 == Changelog ==
 
