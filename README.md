@@ -5,8 +5,9 @@ The WPCasa Contact Form 7 add-on is a bridge plugin for the Contact Form 7 form 
 
 **Please Notice!** This is an extension plugin and only works in combination with the [WPCasa Real Estate WordPress](https://github.com/wpsight/wpcasa) plugin.
 
-## Demo
-Please feel free to visit our [demo site](http://demo.wpcasa.com/listing/unique-villa-with-private-beach/) where you can test this add-on.
+## WordPress.org
+
+If you are not a developer, please find the official plugin repository on [WordPress.org](https://wordpress.org/plugins/wpcasa-contact-form-7/).
 
 ## Support
 

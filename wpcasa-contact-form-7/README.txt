@@ -12,7 +12,7 @@ Add support for Contact Form 7 to attach property details to the contact email s
 
 == Description ==
 
-The WPCasa Contact Form 7 add-on is a bridge plugin for the Contact Form 7 form builder that can be used to display a contact form on single listing pages in WPCasa. The add-on makes sure that useful property information is attaced to the emails sent through the form. It also comes with a starter form that includes all the necessary fields to make your life easier.
+The WPCasa Contact Form 7 add-on is a bridge plugin for the Contact Form 7 form builder that can be used to display a contact form on single listing pages in WPCasa. The add-on makes sure that useful property information is attached to the emails sent through the form. It also comes with a starter form that includes all the necessary fields to make your life easier.
 
 > Please notice that this plugin is an add-on for [WPCasa](https://wordpress.org/plugins/wpcasa/) and will NOT work without the core plugin.
 
