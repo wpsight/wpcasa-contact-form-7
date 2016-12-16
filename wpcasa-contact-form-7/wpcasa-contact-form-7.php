@@ -3,11 +3,11 @@
 Plugin Name: WPCasa Contact Form 7
 Plugin URI: https://wpcasa.com/downloads/wpcasa-contact-form-7
 Description: Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
-Version: 1.0.0
+Version: 1.0.1
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.6
+Tested up to: 4.7
 Text Domain: wpcasa-contact-form-7
 Domain Path: /languages
 
@@ -58,12 +58,12 @@ class WPSight_Contact_Form_7 {
 		
 		// Add CF7 Shortcodes
 		
-		if( function_exists( 'wpcf7_add_shortcode' ) ) {
+		if( function_exists( 'wpcf7_add_form_tag' ) ) {
 		
-			wpcf7_add_shortcode( 'listing_agent', array( $this, 'listing_agent_shortcode' ), true );
-			wpcf7_add_shortcode( 'listing_id', array( $this, 'listing_id_shortcode' ), true );
-			wpcf7_add_shortcode( 'listing_url', array( $this, 'listing_url_shortcode' ), true );
-			wpcf7_add_shortcode( 'listing_title', array( $this, 'listing_title_shortcode' ), true );
+			wpcf7_add_form_tag( 'listing_agent', array( $this, 'listing_agent_shortcode' ), true );
+			wpcf7_add_form_tag( 'listing_id', array( $this, 'listing_id_shortcode' ), true );
+			wpcf7_add_form_tag( 'listing_url', array( $this, 'listing_url_shortcode' ), true );
+			wpcf7_add_form_tag( 'listing_title', array( $this, 'listing_title_shortcode' ), true );
 		
 		}
 
@@ -140,6 +140,7 @@ class WPSight_Contact_Form_7 {
 	public function listing_form_display() {
 		
 		if( is_singular( wpsight_post_type() ) && wpsight_get_option( 'contact_form_7_listing_form_display' ) )
+
 			add_action( wpsight_get_option( 'contact_form_7_listing_form_display' ), array( $this, 'listing_form' ) );
 		
 	}
