@@ -3,8 +3,8 @@ Contributors: wpsight, simonrimkus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
 Tags: real estate, realestate, wpcf7, cf7 contact form 7, contact form, contact, agent, listing, property, wpcasa
 Requires at least: 4.0
-Tested up to: 4.6
-Stable tag: 1.0.0
+Tested up to: 4.7
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,10 +49,13 @@ No, this is an add-on plugin for the WPCasa real estate framework in combination
 
 == Changelog ==
 
+= 1.0.1 =
+* Rename funtion `wpcf7_add_shortcode()` to `wpcf7_add_form_tag()`
+
 = 1.0.0 =
 * Initial release
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-* Initial release
+= 1.0.1 =
+* Fix compatibility issue with CF7
