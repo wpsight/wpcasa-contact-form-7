@@ -3,15 +3,15 @@
 Plugin Name: WPCasa Contact Form 7
 Plugin URI: https://wpcasa.com/downloads/wpcasa-contact-form-7
 Description: Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
-Version: 1.0.1
+Version: 1.1.0
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.7
+Tested up to: 4.8
 Text Domain: wpcasa-contact-form-7
 Domain Path: /languages
 
-	Copyright: 2015 Simon Rimkus
+	Copyright: 2015 WPSight
 	License: GNU General Public License v2.0 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -40,7 +40,7 @@ class WPSight_Contact_Form_7 {
 
 		define( 'WPSIGHT_CONTACT_FORM_7_NAME', 'WPCasa Contact Form 7' );
 		define( 'WPSIGHT_CONTACT_FORM_7_DOMAIN', 'wpcasa-contact-form-7' );
-		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.0.0' );
+		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.1.0' );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
@@ -60,10 +60,10 @@ class WPSight_Contact_Form_7 {
 		
 		if( function_exists( 'wpcf7_add_form_tag' ) ) {
 		
-			wpcf7_add_form_tag( 'listing_agent', array( $this, 'listing_agent_shortcode' ), true );
-			wpcf7_add_form_tag( 'listing_id', array( $this, 'listing_id_shortcode' ), true );
-			wpcf7_add_form_tag( 'listing_url', array( $this, 'listing_url_shortcode' ), true );
-			wpcf7_add_form_tag( 'listing_title', array( $this, 'listing_title_shortcode' ), true );
+			wpcf7_add_form_tag( 'listing_agent', array( $this, 'listing_agent_tag' ), true );
+			wpcf7_add_form_tag( 'listing_id', array( $this, 'listing_id_tag' ), true );
+			wpcf7_add_form_tag( 'listing_url', array( $this, 'listing_url_tag' ), true );
+			wpcf7_add_form_tag( 'listing_title', array( $this, 'listing_title_tag' ), true );
 		
 		}
 
@@ -170,7 +170,7 @@ class WPSight_Contact_Form_7 {
 	}
 	
 	/**
-	 *	listing_agent_shortcode()
+	 *	listing_agent_tag()
 	 *
 	 *  Add CF7 shortcode to display the email
 	 *	of a listing agent in a hidden field
@@ -181,17 +181,17 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_agent_shortcode( $tag ) {
+	function listing_agent_tag( $tag ) {
 
-		if ( ! is_array( $tag ) || empty( $tag['name'] ) )
+		if ( ! is_object( $tag ) || empty( $tag->name ) )
 			return;
 	
-		return '<input type="hidden" name="' . esc_attr( $tag['name'] ) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
+		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
 	
 	}
 	
 	/**
-	 *	listing_id_shortcode()
+	 *	listing_id_tag()
 	 *
 	 *  Add CF7 shortcode to display the
 	 *	listing ID in a hidden field.
@@ -200,17 +200,17 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_id_shortcode( $tag ) {
+	function listing_id_tag( $tag ) {
 
-		if ( ! is_array( $tag ) || empty( $tag['name'] ) )
+		if ( ! is_object( $tag ) || empty( $tag->name ) )
 			return;
 	
-		return '<input type="hidden" name="' . esc_attr( $tag['name'] ) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
+		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
 	
 	}
 	
 	/**
-	 *	listing_url_shortcode()
+	 *	listing_url_tag()
 	 *
 	 *  Add CF7 shortcode to display the
 	 *	listing URL in a hidden field.
@@ -219,17 +219,17 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_url_shortcode( $tag ) {
+	function listing_url_tag( $tag ) {
 
-		if ( ! is_array( $tag ) || empty( $tag['name'] ) )
+		if ( ! is_object( $tag ) || empty( $tag->name ) )
 			return;
 	
-		return '<input type="hidden" name="' . esc_attr( $tag['name'] ) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
+		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
 	
 	}
 	
 	/**
-	 *	listing_title_shortcode()
+	 *	listing_title_tag()
 	 *
 	 *  Add CF7 shortcode to display the
 	 *	listing title in a hidden field.
@@ -238,12 +238,12 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_title_shortcode( $tag ) {
+	function listing_title_tag( $tag ) {
 
-		if ( ! is_array( $tag ) || empty( $tag['name'] ) )
+		if ( ! is_object( $tag ) || empty( $tag->name ) )
 			return;
 	
-		return '<input type="hidden" name="' . esc_attr( $tag['name'] ) . '" value="' . esc_attr( get_the_title() ) . '" />';
+		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( get_the_title() ) . '" />';
 	
 	}
 	
@@ -270,7 +270,7 @@ class WPSight_Contact_Form_7 {
 			. '<p>' . __( 'Your Message', 'wpcasa-contact-form-7' ) . '<br />' . "\n"
 			. '    [textarea your-message] </p>' . "\n\n"
 			. '<p>[submit "' . __( 'Submit Request', 'wpcasa-contact-form-7' ) . '"]</p>' . "\n\n"
-			. '<div class="hidden">[listing_agent agent][listing_id id][listing_url url][listing_title title]</div>';
+			. '<div class="hidden">[listing_agent listing_agent][listing_id listing_id][listing_url listing_url][listing_title listing_title]</div>';
 
 		return $template;
 
@@ -292,8 +292,8 @@ class WPSight_Contact_Form_7 {
 		$template = array(
 			'subject'				=> __( 'Request', 'wpcasa-contact-form-7' ) . ': [title]',
 			'sender'				=> '[your-name] <[your-email]>',
-			'body'					=> sprintf( '<strong>[your-name]</strong> %s:' . "\n\n" . ' [your-message]' . "\n\n" . '<strong>%s</strong>:' . "\n" . '[id]: <a href="[url]">[title]</a>', __( 'sent you a message', 'wpcasa-contact-form-7' ), __( 'Listing', 'wpcasa-contact-form-7' ) ),
-			'recipient' 			=> '[agent]',
+			'body'					=> sprintf( '<strong>[your-name]</strong> %s:' . "\n\n" . ' [your-message]' . "\n\n" . '<strong>%s</strong>:' . "\n" . '[listing_id]: <a href="[listing_url]">[listing_title]</a>', __( 'sent you a message', 'wpcasa-contact-form-7' ), __( 'Listing', 'wpcasa-contact-form-7' ) ),
+			'recipient' 			=> '[listing_agent]',
 			'additional_headers'	=> 'Reply-To: [your-email]',
 			'attachments'			=> '',
 			'use_html'				=> 1,
