@@ -160,7 +160,7 @@ class WPSight_Contact_Form_7 {
 		
 		if( wpsight_get_option( 'contact_form_7_listing_form_id' ) ) {
 			
-			$contact_form = wpcf7_contact_form( wpsight_get_option( 'contact_form_7_listing_form_id' ) );
+			$contact_form = wpcf7_contact_form( self::wpcf7_contact_form_id() );
 			
 			if( is_object( $contact_form ) )
 				echo $contact_form->form_html( array( 'html_class' => 'wpsight-wpcf7' ) );
@@ -246,7 +246,34 @@ class WPSight_Contact_Form_7 {
 		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( get_the_title() ) . '" />';
 	
 	}
-	
+
+    /**
+     * 	wpcf7_contact_form_id()
+     *
+     *	Return form id based on language
+     *  if Polylang for Contact Form 7
+     *  is installed.
+     *
+     *	@uses	wpsight_get_option()
+     *	@uses	pll_current_language()
+     *	@uses	pll_get_post()
+     *
+     *	@since	1.1.0
+     */
+    function wpcf7_contact_form_id(){
+
+        $id = wpsight_get_option( 'contact_form_7_listing_form_id' );
+
+        if( ! is_plugin_active( 'cf7-polylang/cf7-polylang.php' ) )
+            return $id;
+
+        $current_lang = pll_current_language('slug');
+        $form_id = pll_get_post($id, $current_lang);
+
+        return empty($form_id) ? $id : $form_id;
+
+    }
+
 	/**
 	 *	default_form()
 	 *
