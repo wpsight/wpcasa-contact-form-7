@@ -188,7 +188,7 @@ class WPSight_Contact_Form_7 {
         if ( is_object( $tag ) || !empty( $tag->name ) )
             $name = $tag->name;
 
-        if ( $cf7_version >= 4.7 ) {
+        if ( $cf7_version <= 4.7 ) {
             if ( is_array( $tag ) || !empty( $tag['name'] ) )
                 $name = $tag['name'];
         }
@@ -213,7 +213,7 @@ class WPSight_Contact_Form_7 {
         if ( is_object( $tag ) || !empty( $tag->name ) )
             $name = $tag->name;
 
-        if ( $cf7_version >= 4.7 ) {
+        if ( $cf7_version <= 4.7 ) {
             if ( is_array( $tag ) || !empty( $tag['name'] ) )
                 $name = $tag['name'];
         }
@@ -237,7 +237,7 @@ class WPSight_Contact_Form_7 {
         if ( is_object( $tag ) || !empty( $tag->name ) )
             $name = $tag->name;
 
-        if ( $cf7_version >= 4.7 ) {
+        if ( $cf7_version <= 4.7 ) {
             if ( is_array( $tag ) || !empty( $tag['name'] ) )
                 $name = $tag['name'];
         }
@@ -262,7 +262,7 @@ class WPSight_Contact_Form_7 {
         if ( is_object( $tag ) || !empty( $tag->name ) )
             $name = $tag->name;
 
-        if ( $cf7_version >= 4.7 ) {
+        if ( $cf7_version <= 4.7 ) {
             if ( is_array( $tag ) || !empty( $tag['name'] ) )
                 $name = $tag['name'];
         }
