@@ -181,14 +181,20 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_agent_tag( $tag ) {
+    function listing_agent_tag( $tag ) {
+        $name = '';
+        $cf7_version = floatval($this->get_cf7_version());
 
-		if ( ! is_object( $tag ) || empty( $tag->name ) )
-			return;
-	
-		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
-	
-	}
+        if ( is_object( $tag ) || !empty( $tag->name ) )
+            $name = $tag->name;
+
+        if ( $cf7_version >= 4.7 ) {
+            if ( is_array( $tag ) || !empty( $tag['name'] ) )
+                $name = $tag['name'];
+        }
+
+        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
+    }
 	
 	/**
 	 *	listing_id_tag()
@@ -200,14 +206,19 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_id_tag( $tag ) {
+    function listing_id_tag( $tag ) {
+        $name = '';
+        $cf7_version = floatval($this->get_cf7_version());
 
-		if ( ! is_object( $tag ) || empty( $tag->name ) )
-			return;
-	
-		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
-	
-	}
+        if ( is_object( $tag ) || !empty( $tag->name ) )
+            $name = $tag->name;
+
+        if ( $cf7_version >= 4.7 ) {
+            if ( is_array( $tag ) || !empty( $tag['name'] ) )
+                $name = $tag['name'];
+        }
+        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
+    }
 	
 	/**
 	 *	listing_url_tag()
@@ -219,14 +230,20 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_url_tag( $tag ) {
+    function listing_url_tag( $tag ) {
+        $name = '';
+        $cf7_version = floatval($this->get_cf7_version());
 
-		if ( ! is_object( $tag ) || empty( $tag->name ) )
-			return;
-	
-		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
-	
-	}
+        if ( is_object( $tag ) || !empty( $tag->name ) )
+            $name = $tag->name;
+
+        if ( $cf7_version >= 4.7 ) {
+            if ( is_array( $tag ) || !empty( $tag['name'] ) )
+                $name = $tag['name'];
+        }
+
+        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
+    }
 	
 	/**
 	 *	listing_title_tag()
@@ -238,14 +255,20 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-	function listing_title_tag( $tag ) {
+    function listing_title_tag( $tag ) {
+        $name = '';
+        $cf7_version = floatval($this->get_cf7_version());
 
-		if ( ! is_object( $tag ) || empty( $tag->name ) )
-			return;
-	
-		return '<input type="hidden" name="' . esc_attr( $tag->name ) . '" value="' . esc_attr( get_the_title() ) . '" />';
-	
-	}
+        if ( is_object( $tag ) || !empty( $tag->name ) )
+            $name = $tag->name;
+
+        if ( $cf7_version >= 4.7 ) {
+            if ( is_array( $tag ) || !empty( $tag['name'] ) )
+                $name = $tag['name'];
+        }
+
+        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( get_the_title() ) . '" />';
+    }
 
     /**
      * 	wpcf7_contact_form_id()
