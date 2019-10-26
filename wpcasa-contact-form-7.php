@@ -61,6 +61,7 @@ class WPSight_Contact_Form_7 {
 		if( function_exists( 'wpcf7_add_form_tag' ) ) {
 		
 			wpcf7_add_form_tag( 'listing_agent', array( $this, 'listing_agent_tag' ), true );
+			wpcf7_add_form_tag( 'listing_agent_name', array( $this, 'listing_agent_name_tag' ), true );
 			wpcf7_add_form_tag( 'listing_id', array( $this, 'listing_id_tag' ), true );
 			wpcf7_add_form_tag( 'listing_url', array( $this, 'listing_url_tag' ), true );
 			wpcf7_add_form_tag( 'listing_title', array( $this, 'listing_title_tag' ), true );
@@ -194,6 +195,34 @@ class WPSight_Contact_Form_7 {
         }
 
         return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
+    }
+
+    /**
+     *	listing_agent_name_tag()
+     *
+     *  Add CF7 shortcode to display display name
+     *	of a listing agent in a hidden field
+     *	protected by antispambot().
+     *
+     *	@uses	get_the_author_name()
+     *	@uses	antispambot()
+     *
+     *	@since	1.0.0
+     */
+    function listing_agent_name_tag( $tag ) {
+        $name = '';
+        $cf7_version = floatval($this->get_cf7_version());
+
+        if ( is_object( $tag ) || !empty( $tag->name ) )
+            $name = $tag->name;
+
+        if ( $cf7_version <= 4.7 ) {
+            if ( is_array( $tag ) || !empty( $tag['name'] ) )
+                $name = $tag['name'];
+        }
+        $output = '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'display_name' ) ) ) . '" />';
+
+        return $output;
     }
 	
 	/**
@@ -353,6 +382,17 @@ class WPSight_Contact_Form_7 {
 		return $template;
 
 	}
+
+    /**
+     *  Get cf7 version
+     *
+     *	@return	string
+     *
+     *	@since	1.1.0
+     */
+    function get_cf7_version() {
+        return get_plugin_data( ABSPATH . "wp-content/plugins/contact-form-7/wp-contact-form-7.php", $markup = false, $translate = false)['Version'];
+    }
 
 	/**
 	 *	activation()
