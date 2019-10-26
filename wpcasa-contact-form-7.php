@@ -321,7 +321,7 @@ class WPSight_Contact_Form_7 {
 			. '<p>' . __( 'Your Message', 'wpcasa-contact-form-7' ) . '<br />' . "\n"
 			. '    [textarea your-message] </p>' . "\n\n"
 			. '<p>[submit "' . __( 'Submit Request', 'wpcasa-contact-form-7' ) . '"]</p>' . "\n\n"
-			. '<div class="hidden">[listing_agent listing_agent][listing_id listing_id][listing_url listing_url][listing_title listing_title]</div>';
+			. '<div class="hidden">[listing_agent listing_agent][listing_agent_name listing_agent_name][listing_id listing_id][listing_url listing_url][listing_title listing_title]</div>';
 
 		return $template;
 
