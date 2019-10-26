@@ -183,18 +183,7 @@ class WPSight_Contact_Form_7 {
 	 *	@since	1.0.0
 	 */
     function listing_agent_tag( $tag ) {
-        $name = '';
-        $cf7_version = floatval($this->get_cf7_version());
-
-        if ( is_object( $tag ) || !empty( $tag->name ) )
-            $name = $tag->name;
-
-        if ( $cf7_version <= 4.7 ) {
-            if ( is_array( $tag ) || !empty( $tag['name'] ) )
-                $name = $tag['name'];
-        }
-
-        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
+        return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
     }
 
     /**
@@ -210,19 +199,7 @@ class WPSight_Contact_Form_7 {
      *	@since	1.0.0
      */
     function listing_agent_name_tag( $tag ) {
-        $name = '';
-        $cf7_version = floatval($this->get_cf7_version());
-
-        if ( is_object( $tag ) || !empty( $tag->name ) )
-            $name = $tag->name;
-
-        if ( $cf7_version <= 4.7 ) {
-            if ( is_array( $tag ) || !empty( $tag['name'] ) )
-                $name = $tag['name'];
-        }
-        $output = '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'display_name' ) ) ) . '" />';
-
-        return $output;
+        return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'display_name' ) ) ) . '" />';
     }
 	
 	/**
@@ -236,17 +213,7 @@ class WPSight_Contact_Form_7 {
 	 *	@since	1.0.0
 	 */
     function listing_id_tag( $tag ) {
-        $name = '';
-        $cf7_version = floatval($this->get_cf7_version());
-
-        if ( is_object( $tag ) || !empty( $tag->name ) )
-            $name = $tag->name;
-
-        if ( $cf7_version <= 4.7 ) {
-            if ( is_array( $tag ) || !empty( $tag['name'] ) )
-                $name = $tag['name'];
-        }
-        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
+        return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
     }
 	
 	/**
@@ -260,18 +227,7 @@ class WPSight_Contact_Form_7 {
 	 *	@since	1.0.0
 	 */
     function listing_url_tag( $tag ) {
-        $name = '';
-        $cf7_version = floatval($this->get_cf7_version());
-
-        if ( is_object( $tag ) || !empty( $tag->name ) )
-            $name = $tag->name;
-
-        if ( $cf7_version <= 4.7 ) {
-            if ( is_array( $tag ) || !empty( $tag['name'] ) )
-                $name = $tag['name'];
-        }
-
-        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
+        return  '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
     }
 	
 	/**
@@ -285,6 +241,22 @@ class WPSight_Contact_Form_7 {
 	 *	@since	1.0.0
 	 */
     function listing_title_tag( $tag ) {
+        return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( get_the_title() ) . '" />';
+    }
+
+    /**
+     *	get_tag_name()
+     *
+     *	listing title in a hidden field.
+     *
+     *	@uses	get_cf7_version()
+     *  @uses	is_object()
+     * 	@uses	is_array()
+     * 	@uses	floatval()
+     *
+     *	@since	1.0.0
+     */
+    function get_tag_name($tag) {
         $name = '';
         $cf7_version = floatval($this->get_cf7_version());
 
@@ -296,7 +268,7 @@ class WPSight_Contact_Form_7 {
                 $name = $tag['name'];
         }
 
-        return '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr( get_the_title() ) . '" />';
+        return $name;
     }
 
     /**
