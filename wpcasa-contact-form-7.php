@@ -258,7 +258,8 @@ class WPSight_Contact_Form_7 {
      */
     public function get_tag_name($tag) {
         $name = '';
-        $cf7_version = floatval(( $this->get_cf7_plugin_info()['Version'] ));
+        $plugin_info = $this->get_cf7_plugin_info();
+        $cf7_version = floatval(( $plugin_info['Version'] ));
 
         if ( is_object( $tag ) || !empty( $tag->name ) )
             $name = $tag->name;
