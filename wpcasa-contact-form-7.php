@@ -182,7 +182,7 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-    function listing_agent_tag( $tag ) {
+    public function listing_agent_tag( $tag ) {
         return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'email' ) ) ) . '" />';
     }
 
@@ -198,7 +198,7 @@ class WPSight_Contact_Form_7 {
      *
      *	@since	1.0.0
      */
-    function listing_agent_name_tag( $tag ) {
+    public function listing_agent_name_tag( $tag ) {
         return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( antispambot( get_the_author_meta( 'display_name' ) ) ) . '" />';
     }
 	
@@ -212,7 +212,7 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-    function listing_id_tag( $tag ) {
+    public function listing_id_tag( $tag ) {
         return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( wpsight_get_listing_id() ) . '" />';
     }
 	
@@ -226,7 +226,7 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-    function listing_url_tag( $tag ) {
+    public function listing_url_tag( $tag ) {
         return  '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( esc_url( get_permalink() ) ) . '" />';
     }
 	
@@ -240,7 +240,7 @@ class WPSight_Contact_Form_7 {
 	 *
 	 *	@since	1.0.0
 	 */
-    function listing_title_tag( $tag ) {
+    public function listing_title_tag( $tag ) {
         return '<input type="hidden" name="' . esc_attr($this->get_tag_name($tag)) . '" value="' . esc_attr( get_the_title() ) . '" />';
     }
 
@@ -249,16 +249,16 @@ class WPSight_Contact_Form_7 {
      *
      *	listing title in a hidden field.
      *
-     *	@uses	get_cf7_version()
+     *	@uses	get_cf7_plugin_info()
      *  @uses	is_object()
      * 	@uses	is_array()
      * 	@uses	floatval()
      *
      *	@since	1.0.0
      */
-    function get_tag_name($tag) {
+    public function get_tag_name($tag) {
         $name = '';
-        $cf7_version = floatval($this->get_cf7_version());
+        $cf7_version = floatval(( $this->get_cf7_plugin_info()['Version'] ));
 
         if ( is_object( $tag ) || !empty( $tag->name ) )
             $name = $tag->name;
@@ -362,8 +362,8 @@ class WPSight_Contact_Form_7 {
      *
      *	@since	1.1.0
      */
-    function get_cf7_version() {
-        return get_plugin_data( ABSPATH . "wp-content/plugins/contact-form-7/wp-contact-form-7.php", $markup = false, $translate = false)['Version'];
+    public function get_cf7_plugin_info() {
+        return get_plugin_data( ABSPATH . "wp-content/plugins/contact-form-7/wp-contact-form-7.php", $markup = false, $translate = false);
     }
 
 	/**
