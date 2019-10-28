@@ -83,7 +83,7 @@ class WPSight_Contact_Form_7_Admin {
 		);
 
 		$options['contact_form_7'] = array(
-			__( 'Contact Form 7', 'wpcasa-contact-form-7' ),
+            ("<span class='dashicons dashicons-email'></span>" . __( 'Contact Form 7', 'wpcasa-contact-form-7' )),
 			apply_filters( 'wpsight_options_contact_form_7', $options_cf7 )
 		);
 
