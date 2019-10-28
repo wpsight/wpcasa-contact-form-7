@@ -345,7 +345,7 @@ class WPSight_Contact_Form_7 {
 			'subject'				=> __( 'Request', 'wpcasa-contact-form-7' ) . ': [title]',
 			'sender'				=> '[your-name] <[your-email]>',
 			'body'					=> sprintf( '<strong>[your-name]</strong> %s:' . "\n\n" . ' [your-message]' . "\n\n" . '<strong>%s</strong>:' . "\n" . '[listing_id]: <a href="[listing_url]">[listing_title]</a>', __( 'sent you a message', 'wpcasa-contact-form-7' ), __( 'Listing', 'wpcasa-contact-form-7' ) ),
-			'recipient' 			=> '[listing_agent]',
+			'recipient' 			=> '[listing_agent_name] <[listing_agent]>',
 			'additional_headers'	=> 'Reply-To: [your-email]',
 			'attachments'			=> '',
 			'use_html'				=> 1,
