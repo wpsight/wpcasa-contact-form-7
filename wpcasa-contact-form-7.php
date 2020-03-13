@@ -3,11 +3,11 @@
 Plugin Name: WPCasa Contact Form 7
 Plugin URI: https://wpcasa.com/downloads/wpcasa-contact-form-7
 Description: Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
-Version: 1.1.0
+Version: 1.2.0
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.8
+Tested up to: 5.3.2
 Text Domain: wpcasa-contact-form-7
 Domain Path: /languages
 
@@ -40,7 +40,7 @@ class WPSight_Contact_Form_7 {
 
 		define( 'WPSIGHT_CONTACT_FORM_7_NAME', 'WPCasa Contact Form 7' );
 		define( 'WPSIGHT_CONTACT_FORM_7_DOMAIN', 'wpcasa-contact-form-7' );
-		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.1.0' );
+		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.2.0' );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
