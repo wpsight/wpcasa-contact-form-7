@@ -32,6 +32,8 @@ class WPSight_Contact_Form_7_Admin {
 	 *	@since 1.0.0
 	 */
 	public function options( $options ) {
+        $icon = 'dashicons dashicons-email';
+        $name = __( 'Contact Form 7', 'wpcasa-contact-form-7' );
 
 		// Prepare forms option
 		$forms = array( '' => __( 'None', 'wpcasa-contact-form-7' ) );
@@ -42,6 +44,15 @@ class WPSight_Contact_Form_7_Admin {
 		}
 
 		$options_cf7 = array(
+            'contact_form_7_pageheading' => array(
+                'name'		=> __( 'Contact Form 7', 'wpcasa-contact-form-7' ),
+                'desc'		=> __( '', 'wpcasa-contact-form-7' ),
+                'link'		=> 'https://docs.wpcasa.com/article/wpcasa-contact-form-7',
+                'icon'		=> $icon,
+                'id'		=> 'cf7_pageheading',
+                'type'		=> 'pageheading',
+                'position'	=> 10
+            ),
 
 			'contact_form_7_listing_form_id' => array(
 				'name'		=> __( 'Listing Form', 'wpcasa-contact-form-7' ),
@@ -82,8 +93,12 @@ class WPSight_Contact_Form_7_Admin {
 			'type'		=> 'checkbox'
 		);
 
+        if ( version_compare( '1.1.0', WPSIGHT_VERSION, '<' ) ) {
+            $name = '<span class="' . $icon . '"></span>' . $name;
+        }
+
 		$options['contact_form_7'] = array(
-            ("<span class='dashicons dashicons-email'></span>" . __( 'Contact Form 7', 'wpcasa-contact-form-7' )),
+            $name,
 			apply_filters( 'wpsight_options_contact_form_7', $options_cf7 )
 		);
 
