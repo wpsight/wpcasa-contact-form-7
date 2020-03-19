@@ -53,7 +53,7 @@ No, this is an add-on plugin for the WPCasa real estate framework in combination
 * Fix - Compatibility issue with CF7 4.8
 * Update - structure
 * Add - listing agent name tag
-* Add - compatibility with wpcasa 1.2 version
+* Add - compatibility with WPCasa 1.2 version
 * ADD - recipient by default
 
 = 1.1.0 - 2017-06-07 =
