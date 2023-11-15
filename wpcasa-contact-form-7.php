@@ -3,11 +3,11 @@
 Plugin Name: WPCasa Contact Form 7
 Plugin URI: https://wpcasa.com/downloads/wpcasa-contact-form-7
 Description: Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
-Version: 1.2.0
+Version: 1.2.1
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 5.3.2
+Tested up to: 5.8
 Text Domain: wpcasa-contact-form-7
 Domain Path: /languages
 */
@@ -36,7 +36,7 @@ class WPSight_Contact_Form_7 {
 
 		define( 'WPSIGHT_CONTACT_FORM_7_NAME', 'WPCasa Contact Form 7' );
 		define( 'WPSIGHT_CONTACT_FORM_7_DOMAIN', 'wpcasa-contact-form-7' );
-		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.2.0' );
+		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.2.1' );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
@@ -117,7 +117,7 @@ class WPSight_Contact_Form_7 {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 		
 		if( is_singular( wpsight_post_type() ) && wpsight_get_option( 'contact_form_7_listing_form_css' ) )
-			wp_enqueue_style( 'wpcasa-contact-form-7', WPSIGHT_CONTACT_FORM_7_PLUGIN_URL . '/assets/css/wpsight-contact-form-7' . $suffix . '.css' );
+			wp_enqueue_style( 'wpcasa-contact-form-7', WPSIGHT_CONTACT_FORM_7_PLUGIN_URL . '/assets/css/wpsight-contact-form-7' . $suffix . '.css', NULL, WPSIGHT_CONTACT_FORM_7_VERSION );
 
 	}
 	
