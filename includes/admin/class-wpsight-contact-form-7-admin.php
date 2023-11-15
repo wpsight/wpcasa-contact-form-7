@@ -46,7 +46,7 @@ class WPSight_Contact_Form_7_Admin {
 		$options_cf7 = array(
             'contact_form_7_pageheading' => array(
                 'name'		=> __( 'Contact Form 7', 'wpcasa-contact-form-7' ),
-                'desc'		=> __( '', 'wpcasa-contact-form-7' ),
+                'desc'		=> '',
                 'link'		=> 'https://docs.wpcasa.com/article/wpcasa-contact-form-7',
                 'icon'		=> $icon,
                 'id'		=> 'cf7_pageheading',
