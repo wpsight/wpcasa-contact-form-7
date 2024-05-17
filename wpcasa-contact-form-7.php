@@ -1,17 +1,27 @@
 <?php
-/*
-Plugin Name: WPCasa Contact Form 7
-Plugin URI: https://wpcasa.com/downloads/wpcasa-contact-form-7
-Description: Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
-Version: 1.2.1
-Author: WPSight
-Author URI: https://wpcasa.com
-Requires at least: 4.0
-Requires Plugins:  wpcasa, contact-form-7
-Tested up to: 6.4
-Text Domain: wpcasa-contact-form-7
-Domain Path: /languages
-*/
+/**
+ * WPCasa Contact Form 7
+ *
+ * @package           WPCasaContactForm7
+ * @author            WPSight
+ * @copyright         2024 Kybernetik Services GmbH
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       WPCasa Contact Form 7
+ * Plugin URI:        https://wpcasa.com/downloads/wpcasa-contact-form-7
+ * Description:       Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
+ * Version:           1.2.1
+ * Requires at least: 6.2
+ * Requires PHP:      7.2
+ * Requires Plugins:  wpcasa, contact-form-7
+ * Author:            WPSight
+ * Author URI:        https://wpcasa.com
+ * Text Domain:       wpcasa-contact-form-7
+ * Domain Path:       /languages
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )

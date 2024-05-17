@@ -1,9 +1,9 @@
 === WPCasa Contact Form 7 ===
-Contributors: wpsight, kybernetikservices, joehana
+Contributors: wpsight, kybernetikservices
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: real estate, realestate, wpcf7, cf7 contact form 7, contact form, contact, agent, agents, listing, listings, property, properties, wpcasa
-Requires at least: 4.0
-Tested up to: 6.4
+Requires at least: 6.2
+Tested up to: 6.5
 Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,6 +21,14 @@ WPCasa is a WordPress solution that provides an intuitive way to manage property
 * Website: [wpcasa.com](https://wpcasa.com)
 * Demo: [demo.wpcasa.com](https://demo.wpcasa.com)
 * Documentation: [docs.wpcasa.com](https://docs.wpcasa.com)
+
+== Contributors ==
+This is a list of contributors to WPCasa All Import.
+Many thanks to all of them for contributing and making WPCasa All Import even better.
+
+[Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
+[Joe Hana](https://wordpress.org/support/users/joehana/)
+[codestylist](https://wordpress.org/support/users/codestylist/)
 
 == Installation ==
 
