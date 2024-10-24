@@ -33,6 +33,11 @@ if ( ! defined( 'ABSPATH' ) )
 class WPSight_Contact_Form_7 {
 
 	/**
+	 * Variable to contain WPSight_Ninja_Forms_Admin class
+	 */
+	public $admin;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
