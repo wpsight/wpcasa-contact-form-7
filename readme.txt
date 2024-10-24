@@ -48,6 +48,10 @@ If you prefer to install the plugin manually, you need to download it to your lo
 
 No, this is an add-on plugin for the WPCasa real estate framework in combination with the Contact Form 7 form builder and will not work without the corresponding core plugins.
 
+= Where is the *.pot file for translating the plugin in any language? =
+
+The translations are handled on WordPress.org. Please be part of the community and help to translate WPCasa Contact Form 7 on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa-contact-form-7/). Thank you!
+
 == Screenshots ==
 
 1. Contact Form 7 form on listing page
@@ -57,7 +61,8 @@ No, this is an add-on plugin for the WPCasa real estate framework in combination
 
 == Changelog ==
 
-= 1.2.2 =
+= 1.3.0 =
+* Add - Loading language files from [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa-contact-form-7/).
 * Add - Notice if WPCasa needs to be updated to get PHP 8 compatibility
 * Fix - PHP8+ deprecated error about creation of dynamic property
 
@@ -82,6 +87,8 @@ No, this is an add-on plugin for the WPCasa real estate framework in combination
 * Initial release
 
 == Upgrade Notice ==
+= 1.3.0 =
+We did some improvements for PHP 8 compatibility and translations are now handled on WordPress.org. Please be part of the community and help to translate WPCasa Contact Form 7 on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa-contact-form-7/). Thank you!
 
 = 1.1.0 =
 * Please find detailed instructions on our blog post: http://blog.wpcasa.com/plugin-update-wpcasa-contact-form-7-v1-1-0-now-available/
