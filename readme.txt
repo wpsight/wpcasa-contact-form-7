@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: real estate, realestate, wpcf7, cf7 contact form 7, contact form, contact, agent, agents, listing, listings, property, properties, wpcasa
 Requires at least: 6.2
 Tested up to: 6.7
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
