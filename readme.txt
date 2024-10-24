@@ -1,7 +1,7 @@
 === WPCasa Contact Form 7 ===
 Contributors: wpsight, kybernetikservices
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
-Tags: real estate, realestate, wpcf7, cf7 contact form 7, contact form, contact, agent, agents, listing, listings, property, properties, wpcasa
+Tags: real estate, wpcasa, contact form 7, cf 7, contact form, contact
 Requires at least: 6.2
 Tested up to: 6.7
 Stable tag: 1.3.0
