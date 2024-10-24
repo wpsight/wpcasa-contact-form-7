@@ -3,8 +3,8 @@ Contributors: wpsight, kybernetikservices
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: real estate, realestate, wpcf7, cf7 contact form 7, contact form, contact, agent, agents, listing, listings, property, properties, wpcasa
 Requires at least: 6.2
-Tested up to: 6.6
-Stable tag: 1.2.1
+Tested up to: 6.7
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,24 +57,28 @@ No, this is an add-on plugin for the WPCasa real estate framework in combination
 
 == Changelog ==
 
-= 1.2.1 - 2023-11-15 =
+= 1.2.2 =
+* Add - Notice if WPCasa needs to be updated to get PHP 8 compatibility
+* Fix - PHP8+ deprecated error about creation of dynamic property
+
+= 1.2.1 =
 * Fix - added version at wp_enqueue_style() to prevent cache problem
 * Fix - some small improvements
 
-= 1.2.0 - 2020-03-13 =
+= 1.2.0 =
 * Fix - Compatibility issue with CF7 4.8
 * Update - structure
 * Add - listing agent name tag
 * Add - compatibility with WPCasa 1.2 version
 * ADD - recipient by default
 
-= 1.1.0 - 2017-06-07 =
+= 1.1.0 =
 * Fix - Compatibility issue with CF7 (Array > Object)
 
-= 1.0.1 - 2016-12-16 =
+= 1.0.1 =
 * Fix - Compatibility issue with CF7 (wpcf7_add_shortcode > wpcf7_add_form_tag())
 
-= 1.0.0 - 2016-04-16 =
+= 1.0.0 =
 * Initial release
 
 == Upgrade Notice ==
