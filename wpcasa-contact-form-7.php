@@ -462,3 +462,28 @@ if( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
 	add_action( 'wpsight_init', array( 'WPSight_Contact_Form_7', 'init' ) );
 
 }
+
+/**
+ * If WPCasa version is less than 1.3.0 and PHP 8+,
+ * this notice appear.
+ * 
+ * @since 1.3.0
+ */
+if ( ! function_exists( 'get_plugin_data' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+$wpcasa_plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/wpcasa/wpcasa.php' );
+$wpcasa_version		= $wpcasa_plugin_data['Version'];
+
+if ( version_compare( PHP_VERSION, '8.0.0', '>' ) && version_compare( $wpcasa_version, '1.3.0', '<' ) ) {
+	add_action( 'admin_notices', 'wpsight_wpcasa_required_notice_for_latest_php' );
+	
+}
+
+if ( ! function_exists( 'wpsight_wpcasa_required_notice_for_latest_php' ) ) {
+	function wpsight_wpcasa_required_notice_for_latest_php() {
+		?>
+		<div class="error notice is-dismissible"><p><?php echo wp_kses( sprintf( 'Please upgrade to <a href="https://wordpress.org/plugins/wpcasa" target="_blank"><b>%1$s %2$s</b></a>.', WPSIGHT_NAME, '1.3.0' ), array( 'a' => array( 'href' => array(), 'target' => array() ), 'b' => array() ) ); ?></p></div>
+		<?php
+	}
+}
