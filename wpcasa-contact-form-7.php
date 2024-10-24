@@ -475,7 +475,7 @@ if ( ! function_exists( 'get_plugin_data' ) ) {
 $wpcasa_plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/wpcasa/wpcasa.php' );
 $wpcasa_version		= $wpcasa_plugin_data['Version'];
 
-if ( version_compare( PHP_VERSION, '8.0.0', '>' ) && version_compare( $wpcasa_version, '1.3.0', '<' ) ) {
+if ( version_compare( PHP_VERSION, '8.0.0', '>' ) || version_compare( $wpcasa_version, '1.3.0', '<' ) ) {
 	add_action( 'admin_notices', 'wpsight_wpcasa_required_notice_for_latest_php' );
 	
 }
