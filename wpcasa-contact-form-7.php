@@ -1,16 +1,26 @@
 <?php
-/*
-Plugin Name: WPCasa Contact Form 7
-Plugin URI: https://wpcasa.com/downloads/wpcasa-contact-form-7
-Description: Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
-Version: 1.2.1
-Author: WPSight
-Author URI: http://wpsight.com
-Requires at least: 4.0
-Tested up to: 5.8
-Text Domain: wpcasa-contact-form-7
-Domain Path: /languages
-*/
+/**
+ * WPCasa Contact Form 7
+ *
+ * @package           WPCasaContactForm7
+ * @author            WPSight
+ * @copyright         2024 Kybernetik Services GmbH
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       WPCasa Contact Form 7
+ * Plugin URI:        https://wpcasa.com/downloads/wpcasa-contact-form-7
+ * Description:       Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
+ * Version:           1.3.0
+ * Requires at least: 6.2
+ * Requires PHP:      7.2
+ * Requires Plugins:  wpcasa, contact-form-7
+ * Author:            WPSight
+ * Author URI:        https://wpcasa.com
+ * Text Domain:       wpcasa-contact-form-7
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )
@@ -20,6 +30,11 @@ if ( ! defined( 'ABSPATH' ) )
  * WPSight_Contact_Form_7 class
  */
 class WPSight_Contact_Form_7 {
+
+	/**
+	 * Variable to contain WPSight_Ninja_Forms_Admin class
+	 */
+	public $admin;
 
 	/**
 	 * Constructor
@@ -36,7 +51,7 @@ class WPSight_Contact_Form_7 {
 
 		define( 'WPSIGHT_CONTACT_FORM_7_NAME', 'WPCasa Contact Form 7' );
 		define( 'WPSIGHT_CONTACT_FORM_7_DOMAIN', 'wpcasa-contact-form-7' );
-		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.2.1' );
+		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.3.0' );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
@@ -47,7 +62,6 @@ class WPSight_Contact_Form_7 {
 
 		// Actions
 
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
 		
 		add_action( 'template_redirect', array( $this, 'listing_form_display' ) );
@@ -86,21 +100,6 @@ class WPSight_Contact_Form_7 {
 		return $wpsight->contact_form_7;
 	}
 
-	/**
-	 *	load_plugin_textdomain()
-	 *	
-	 *	Set up localization for this plugin
-	 *	loading the text domain.
-	 *	
-	 *	@uses	load_plugin_textdomain()
-	 *	
-	 *	@since	1.0.0
-	 */
-
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wpcasa-contact-form-7', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-	}
-	
 	/**
 	 *	frontend_scripts()
 	 *	
@@ -445,4 +444,29 @@ if( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
 	// Initialize plugin on wpsight_init
 	add_action( 'wpsight_init', array( 'WPSight_Contact_Form_7', 'init' ) );
 
+}
+
+/**
+ * If WPCasa version is less than 1.3.0 and PHP 8+,
+ * this notice appear.
+ * 
+ * @since 1.3.0
+ */
+if ( ! function_exists( 'get_plugin_data' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+$wpcasa_plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/wpcasa/wpcasa.php' );
+$wpcasa_version		= $wpcasa_plugin_data['Version'];
+
+if ( version_compare( PHP_VERSION, '8.0.0', '>' ) && version_compare( $wpcasa_version, '1.3.0', '<' ) ) {
+	add_action( 'admin_notices', 'wpsight_wpcasa_required_notice_for_latest_php' );
+	
+}
+
+if ( ! function_exists( 'wpsight_wpcasa_required_notice_for_latest_php' ) ) {
+	function wpsight_wpcasa_required_notice_for_latest_php() {
+		?>
+		<div class="error notice is-dismissible"><p><?php echo wp_kses( sprintf( 'Please upgrade to <a href="https://wordpress.org/plugins/wpcasa" target="_blank"><b>%1$s %2$s</b></a>.', WPSIGHT_NAME, '1.3.0' ), array( 'a' => array( 'href' => array(), 'target' => array() ), 'b' => array() ) ); ?></p></div>
+		<?php
+	}
 }
