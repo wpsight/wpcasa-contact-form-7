@@ -11,7 +11,7 @@
  * Plugin Name:       WPCasa Contact Form 7
  * Plugin URI:        https://wpcasa.com/downloads/wpcasa-contact-form-7
  * Description:       Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Requires at least: 6.2
  * Requires PHP:      7.2
  * Requires Plugins:  wpcasa, contact-form-7
@@ -51,7 +51,7 @@ class WPSight_Contact_Form_7 {
 
 		define( 'WPSIGHT_CONTACT_FORM_7_NAME', 'WPCasa Contact Form 7' );
 		define( 'WPSIGHT_CONTACT_FORM_7_DOMAIN', 'wpcasa-contact-form-7' );
-		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.3.0' );
+		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.3.1' );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
@@ -455,7 +455,7 @@ if( is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) ) {
 if ( ! function_exists( 'get_plugin_data' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
-$wpcasa_plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/wpcasa/wpcasa.php' );
+$wpcasa_plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/wpcasa/wpcasa.php', true, false );
 $wpcasa_version		= $wpcasa_plugin_data['Version'];
 
 if ( version_compare( PHP_VERSION, '8.0.0', '>' ) && version_compare( $wpcasa_version, '1.3.0', '<' ) ) {

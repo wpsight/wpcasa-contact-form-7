@@ -1,10 +1,10 @@
 === WPCasa Contact Form 7 ===
 Contributors: wpsight, kybernetikservices
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
-Tags: real estate, wpcasa, contact form 7, cf 7, contact form, contact
+Tags: wpcasa, contact form 7, cf 7, contact form, contact
 Requires at least: 6.2
 Tested up to: 6.7
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ The translations are handled on WordPress.org. Please be part of the community a
 4. Add-on tab on WPCasa settings page
 
 == Changelog ==
+
+= 1.3.1 =
+* Fix - fixed `_load_textdomain_just_in_time` notice with WordPress 6.7
 
 = 1.3.0 =
 * Add - Loading language files from [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa-contact-form-7/).
