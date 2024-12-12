@@ -23,8 +23,8 @@ WPCasa is a WordPress solution that provides an intuitive way to manage property
 * Documentation: [docs.wpcasa.com](https://docs.wpcasa.com)
 
 == Contributors ==
-This is a list of contributors to WPCasa All Import.
-Many thanks to all of them for contributing and making WPCasa All Import even better.
+This is a list of contributors to WPCasa Contact Form 7.
+Many thanks to all of them for contributing and making WPCasa Contact Form 7 even better.
 
 [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 [Joe Hana](https://wordpress.org/support/users/joehana/)
