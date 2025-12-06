@@ -64,7 +64,7 @@ class WPSight_Contact_Form_7_Admin {
 
             'contact_form_7_listing_form_print_heading' => array(
 	            'name'		=> esc_html__( 'Print Title Heading', 'wpcasa-contact-form-7' ),
-	            'desc'		=> esc_html__( 'Select check the box if you want to print the form title as heading above the form.', 'wpcasa-contact-form-7' ),
+	            'desc'		=> esc_html__( 'Please check the box if you want to print the form title as heading above the form.', 'wpcasa-contact-form-7' ),
 	            'id'		=> 'contact_form_7_listing_form_print_heading',
 	            'type'		=> 'checkbox',
             ),
@@ -80,11 +80,11 @@ class WPSight_Contact_Form_7_Admin {
 				'id'		=> 'contact_form_7_listing_form_print_heading_tag',
 				'type'		=> 'select',
 				'options'	=> array(
-					'h2' => __( 'h2' ),
-					'h3' => __( 'h3' ),
-					'h4' => __( 'h4' ),
-					'h5' => __( 'h5' ),
-					'h6' => __( 'h6' ),
+					'h2' => 'h2',
+					'h3' => 'h3',
+					'h4' => 'h4',
+					'h5' => 'h5',
+					'h6' => 'h6',
 				)
 			);
 
@@ -92,7 +92,7 @@ class WPSight_Contact_Form_7_Admin {
 
 		$options_cf7['contact_form_7_listing_form_show_unavailable_listings'] = array(
 			'name'		=> esc_html__( 'Show on unavailable listings', 'wpcasa-contact-form-7' ),
-			'desc'		=> esc_html__( 'Select uncheck the box if you don\'t want to show the form on the page of unavailable listings.', 'wpcasa-contact-form-7' ),
+			'desc'		=> esc_html__( 'Please uncheck the box if you don\'t want to show the form on the page of unavailable listings.', 'wpcasa-contact-form-7' ),
 			'id'		=> 'contact_form_7_listing_form_show_unavailable_listings',
 			'type'		=> 'checkbox',
 		);

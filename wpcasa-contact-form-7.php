@@ -11,7 +11,7 @@
  * Plugin Name:       WPCasa Contact Form 7
  * Plugin URI:        https://wpcasa.com/downloads/wpcasa-contact-form-7
  * Description:       Add support for Contact Form 7 to attach property details to the contact email sent from WPCasa listing pages.
- * Version:           1.3.1
+ * Version:           1.4.0
  * Requires at least: 6.2
  * Requires PHP:      7.2
  * Requires Plugins:  wpcasa, contact-form-7
@@ -154,7 +154,13 @@ class WPSight_Contact_Form_7 {
 	 */
 	public function listing_form() {
 
-		if( wpsight_get_option( 'contact_form_7_listing_form_id' ) && wpsight_get_option( 'contact_form_7_listing_form_show_unavailable_listings' ) ) {
+        $show = true;
+
+        if( ! wpsight_get_option( 'contact_form_7_listing_form_show_unavailable_listings' ) && wpsight_is_listing_not_available() ) {
+            $show = false;
+        }
+
+		if( wpsight_get_option( 'contact_form_7_listing_form_id' ) && $show ) {
 			
 			$contact_form = wpcf7_contact_form( self::wpcf7_contact_form_id() );
 

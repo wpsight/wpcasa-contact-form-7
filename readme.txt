@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: wpcasa, contact form 7, cf 7, contact form, contact
 Requires at least: 6.2
 Tested up to: 6.9
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
