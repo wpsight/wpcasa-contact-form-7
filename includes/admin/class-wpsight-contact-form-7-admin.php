@@ -45,7 +45,7 @@ class WPSight_Contact_Form_7_Admin {
 
 		$options_cf7 = array(
             'contact_form_7_pageheading' => array(
-                'name'		=> __( 'Contact Form 7', 'wpcasa-contact-form-7' ),
+                'name'		=> esc_html__( 'Contact Form 7', 'wpcasa-contact-form-7' ),
                 'desc'		=> '',
                 'link'		=> 'https://docs.wpcasa.com/article/wpcasa-contact-form-7',
                 'icon'		=> $icon,
@@ -54,23 +54,49 @@ class WPSight_Contact_Form_7_Admin {
                 'position'	=> 10
             ),
 
-			'contact_form_7_listing_form_id' => array(
-				'name'		=> __( 'Listing Form', 'wpcasa-contact-form-7' ),
-				'desc'		=> __( 'Select the form that you want to use on listing pages.', 'wpcasa-contact-form-7' ),
+            'contact_form_7_listing_form_id' => array(
+				'name'		=> esc_html__( 'Listing Form', 'wpcasa-contact-form-7' ),
+				'desc'		=> esc_html__( 'Select the form that you want to use on listing pages.', 'wpcasa-contact-form-7' ),
 				'id'		=> 'contact_form_7_listing_form_id',
 				'type'		=> 'select',
 				'options'	=> $forms
-			)
+			),
+
+            'contact_form_7_listing_form_print_heading' => array(
+	            'name'		=> esc_html__( 'Print Title Heading', 'wpcasa-contact-form-7' ),
+	            'desc'		=> esc_html__( 'Select check the box if you want to print the form title as heading above the form.', 'wpcasa-contact-form-7' ),
+	            'id'		=> 'contact_form_7_listing_form_print_heading',
+	            'type'		=> 'checkbox',
+            ),
+
 
 		);
-		
+
+		if( wpsight_get_option( 'contact_form_7_listing_form_print_heading' ) ) {
+
+			$options_cf7['contact_form_7_listing_form_print_heading_tag'] = array(
+				'name'		=> esc_html__( 'Title Heading Tag', 'wpcasa-contact-form-7' ),
+				'desc'	    => esc_html__( 'Select the heading tag for the title and choose between <h2> and <h6>.', 'wpcasa-contact-form-7' ),
+				'id'		=> 'contact_form_7_listing_form_print_heading_tag',
+				'type'		=> 'select',
+				'options'	=> array(
+					'h2' => __( 'h2' ),
+					'h3' => __( 'h3' ),
+					'h4' => __( 'h4' ),
+					'h5' => __( 'h5' ),
+					'h6' => __( 'h6' ),
+				)
+			);
+
+		}
+
 		$form_id = wpsight_get_option( 'contact_form_7_listing_form_id' );
 		
 		if( $form_id ) {
 		
 			$options_cf7['contact_form_7_listing_form_display'] = array(
-				'name'		=> __( 'Form Display', 'wpcasa-contact-form-7' ),
-				'desc'	=> __( 'Select where to display the listing form or choose to manually add the form via shortcode or function.', 'wpcasa-contact-form-7' ),
+				'name'		=> esc_html__( 'Form Display', 'wpcasa-contact-form-7' ),
+				'desc'	    => esc_html__( 'Select where to display the listing form or choose to manually add the form via shortcode or function.', 'wpcasa-contact-form-7' ),
 				'id'		=> 'contact_form_7_listing_form_display',
 				'type'		=> 'select',
 				'options'	=> array(
@@ -87,8 +113,8 @@ class WPSight_Contact_Form_7_Admin {
 		}
 		
 		$options_cf7['contact_form_7_listing_form_css'] = array(
-			'name'		=> __( 'Form CSS', 'wpcasa-contact-form-7' ),
-			'cb_label'	=> __( 'Please uncheck the box to disable the plugin from outputting CSS.', 'wpcasa-contact-form-7' ),
+			'name'		=> esc_html__( 'Form CSS', 'wpcasa-contact-form-7' ),
+			'cb_label'	=> esc_html__( 'Please uncheck the box to disable the plugin from outputting CSS.', 'wpcasa-contact-form-7' ),
 			'id'		=> 'contact_form_7_listing_form_css',
 			'type'		=> 'checkbox'
 		);

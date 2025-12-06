@@ -61,6 +61,9 @@ The translations are handled on WordPress.org. Please be part of the community a
 
 == Changelog ==
 
+= 1.4.0 =
+* Add - Option to print the form title as a heading above the form
+
 = 1.3.1 =
 * Fix - fixed `_load_textdomain_just_in_time` notice with WordPress 6.7
 
@@ -78,7 +81,7 @@ The translations are handled on WordPress.org. Please be part of the community a
 * Update - structure
 * Add - listing agent name tag
 * Add - compatibility with WPCasa 1.2 version
-* ADD - recipient by default
+* Add - recipient by default
 
 = 1.1.0 =
 * Fix - Compatibility issue with CF7 (Array > Object)
@@ -90,6 +93,9 @@ The translations are handled on WordPress.org. Please be part of the community a
 * Initial release
 
 == Upgrade Notice ==
+= 1.4.0 =
+We have added some useful new options to the settings page.
+
 = 1.3.0 =
 We did some improvements for PHP 8 compatibility and translations are now handled on WordPress.org. Please be part of the community and help to translate WPCasa Contact Form 7 on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa-contact-form-7/). Thank you!
 

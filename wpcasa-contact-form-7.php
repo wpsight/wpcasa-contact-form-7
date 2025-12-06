@@ -51,7 +51,7 @@ class WPSight_Contact_Form_7 {
 
 		define( 'WPSIGHT_CONTACT_FORM_7_NAME', 'WPCasa Contact Form 7' );
 		define( 'WPSIGHT_CONTACT_FORM_7_DOMAIN', 'wpcasa-contact-form-7' );
-		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.3.1' );
+		define( 'WPSIGHT_CONTACT_FORM_7_VERSION', '1.4.0' );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_CONTACT_FORM_7_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
@@ -157,10 +157,21 @@ class WPSight_Contact_Form_7 {
 		if( wpsight_get_option( 'contact_form_7_listing_form_id' ) ) {
 			
 			$contact_form = wpcf7_contact_form( self::wpcf7_contact_form_id() );
-			
-			if( is_object( $contact_form ) )
-				echo $contact_form->form_html( array( 'html_class' => 'wpsight-wpcf7' ) );
-			
+
+            if( is_object( $contact_form ) ) {
+
+                if( wpsight_get_option( 'contact_form_7_listing_form_print_heading' ) ) {
+
+                    $tag = wpsight_get_option( 'contact_form_7_listing_form_print_heading_tag', 'h3' );
+
+                    echo wp_sprintf( '<%1$s>%2$s</%1$s>', $tag, $contact_form->title() );
+
+                }
+
+                echo $contact_form->form_html( array( 'html_class' => 'wpsight-wpcf7' ) );
+
+            }
+
 		}
 		
 	}
@@ -410,9 +421,11 @@ class WPSight_Contact_Form_7 {
 		// Add some default options
 
 		$options = array(
-			'contact_form_7_listing_form_id'		=> $contact_form_id,
-			'contact_form_7_listing_form_css'		=> '1',
-			'contact_form_7_listing_form_display'	=> 'wpsight_listing_single_after'
+			'contact_form_7_listing_form_id'		                => $contact_form_id,
+            'contact_form_7_listing_form_print_heading'             => '0',
+            'contact_form_7_listing_form_print_heading_tag'         => 'h3',
+			'contact_form_7_listing_form_css'		                => '1',
+			'contact_form_7_listing_form_display'	                => 'wpsight_listing_single_after'
 		);
 
 		foreach( $options as $option => $value ) {
