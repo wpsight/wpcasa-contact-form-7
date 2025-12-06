@@ -63,6 +63,7 @@ The translations are handled on WordPress.org. Please be part of the community a
 
 = 1.4.0 =
 * Add - Option to print the form title as a heading above the form
+* Add - Option to hide the form on a page of an unavailable listing
 
 = 1.3.1 =
 * Fix - fixed `_load_textdomain_just_in_time` notice with WordPress 6.7

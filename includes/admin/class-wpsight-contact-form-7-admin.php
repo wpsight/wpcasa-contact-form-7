@@ -90,6 +90,13 @@ class WPSight_Contact_Form_7_Admin {
 
 		}
 
+		$options_cf7['contact_form_7_listing_form_show_unavailable_listings'] = array(
+			'name'		=> esc_html__( 'Show on unavailable listings', 'wpcasa-contact-form-7' ),
+			'desc'		=> esc_html__( 'Select uncheck the box if you don\'t want to show the form on the page of unavailable listings.', 'wpcasa-contact-form-7' ),
+			'id'		=> 'contact_form_7_listing_form_show_unavailable_listings',
+			'type'		=> 'checkbox',
+		);
+
 		$form_id = wpsight_get_option( 'contact_form_7_listing_form_id' );
 		
 		if( $form_id ) {

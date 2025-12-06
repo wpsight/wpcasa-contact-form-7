@@ -153,8 +153,8 @@ class WPSight_Contact_Form_7 {
 	 *	@since 1.0.0
 	 */
 	public function listing_form() {
-		
-		if( wpsight_get_option( 'contact_form_7_listing_form_id' ) ) {
+
+		if( wpsight_get_option( 'contact_form_7_listing_form_id' ) && wpsight_get_option( 'contact_form_7_listing_form_show_unavailable_listings' ) ) {
 			
 			$contact_form = wpcf7_contact_form( self::wpcf7_contact_form_id() );
 
@@ -424,7 +424,8 @@ class WPSight_Contact_Form_7 {
 			'contact_form_7_listing_form_id'		                => $contact_form_id,
             'contact_form_7_listing_form_print_heading'             => '0',
             'contact_form_7_listing_form_print_heading_tag'         => 'h3',
-			'contact_form_7_listing_form_css'		                => '1',
+            'contact_form_7_listing_form_show_unavailable_listings' => '1',
+            'contact_form_7_listing_form_css'		                => '1',
 			'contact_form_7_listing_form_display'	                => 'wpsight_listing_single_after'
 		);
 
